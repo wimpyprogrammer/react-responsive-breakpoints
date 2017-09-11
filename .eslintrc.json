@@ -4,6 +4,7 @@
 	"rules": {
 		"indent": ["error", "tab"],
 		"linebreak-style": "off",
-		"no-tabs": "off"
+		"no-tabs": "off",
+		"react/jsx-filename-extension": "off"
 	}
 }
