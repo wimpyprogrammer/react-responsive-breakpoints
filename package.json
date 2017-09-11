@@ -22,13 +22,17 @@
     "lodash.throttle": "^4.1.1"
   },
   "devDependencies": {
+    "enzyme": "^2.9.1",
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
     "jest": "^21.0.2",
-    "react": "*"
+    "react": "*",
+    "react-addons-test-utils": "*",
+    "react-dom": "*",
+    "react-test-renderer": "*"
   },
   "peerDependencies": {
     "react": "*"
