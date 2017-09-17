@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint ./",
-    "test": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,6 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
-    "jest": "^21.0.2",
     "react": "*",
     "react-addons-test-utils": "*",
     "react-dom": "*",
@@ -40,12 +39,5 @@
   },
   "peerDependencies": {
     "react": "*"
-  },
-  "jest": {
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true,
-    "testMatch": [
-      "**/src/*.spec.js?(x)"
-    ]
   }
 }
