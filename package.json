@@ -4,7 +4,8 @@
   "description": "A higher-order React component to translate CSS breakpoints into properties",
   "main": "src/index.js",
   "scripts": {
-    "build": "babel src --out-dir lib",
+    "build": "npm run clean && babel src --out-dir lib",
+    "clean": "rimraf lib",
     "lint": "eslint ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -36,7 +37,8 @@
     "react": "*",
     "react-addons-test-utils": "*",
     "react-dom": "*",
-    "react-test-renderer": "*"
+    "react-test-renderer": "*",
+    "rimraf": "^2.6.2"
   },
   "peerDependencies": {
     "react": "*"
