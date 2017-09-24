@@ -1,5 +1,6 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
+import noop from 'lodash.noop';
 import reduce from 'lodash.reduce';
 import throttle from 'lodash.throttle';
 
@@ -32,7 +33,8 @@ export default (options, InnerComponent) => {
 		}
 
 		recalculateBreakpoints() {
-			this.setState(calculateBreakpoints());
+			const { onRecalculateBreakpoints = noop } = options;
+			this.setState(calculateBreakpoints(), onRecalculateBreakpoints);
 		}
 
 		render() {
