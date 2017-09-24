@@ -4,7 +4,7 @@ import reduce from 'lodash.reduce';
 import throttle from 'lodash.throttle';
 
 function isVisible(markerEl) {
-	return markerEl && window.getComputedStyle(markerEl).display !== 'none';
+	return !!markerEl && window.getComputedStyle(markerEl).display !== 'none';
 }
 
 export default (options, InnerComponent) => {
