@@ -19,7 +19,7 @@ export default (options, InnerComponent) => {
 		constructor(props) {
 			super(props);
 			// Calculate the initial breakpoints when the component first loads
-			this.recalculateBreakpoints();
+			this.state = calculateBreakpoints();
 			this.recalculateBreakpoints = throttle(this.recalculateBreakpoints.bind(this), 200);
 		}
 
