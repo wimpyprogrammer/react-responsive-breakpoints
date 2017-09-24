@@ -10,6 +10,8 @@ module.exports = (config) => {
 			'src/**/*.spec.js': ['webpack'],
 		},
 
+		reporters: ['mocha'],
+
 		webpack: {
 
 			externals: {
