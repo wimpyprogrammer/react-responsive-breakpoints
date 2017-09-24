@@ -29,5 +29,9 @@ module.exports = (config) => {
 			devtool: 'eval-source-map',
 
 		},
+
+		webpackMiddleware: {
+			noInfo: true,
+		},
 	});
 };
