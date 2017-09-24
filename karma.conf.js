@@ -1,6 +1,6 @@
 module.exports = (config) => {
 	config.set({
-		frameworks: ['mocha'],
+		frameworks: ['mocha', 'viewport'],
 
 		files: [
 			'src/**/*.spec.js',
