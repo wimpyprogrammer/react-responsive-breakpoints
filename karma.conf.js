@@ -3,14 +3,23 @@ module.exports = (config) => {
 		frameworks: ['mocha', 'viewport'],
 
 		files: [
-			'src/**/*.spec.js',
+			'src/**/*.js',
 		],
 
 		preprocessors: {
-			'src/**/*.spec.js': ['webpack'],
+			'src/**/*.js': ['webpack'],
 		},
 
-		reporters: ['mocha'],
+		reporters: ['mocha', 'coverage'],
+
+		coverageReporter: {
+
+			reporters: [
+				{ type: 'lcovonly', subdir: '.' },
+				{ type: 'text' },
+			],
+
+		},
 
 		webpack: {
 
