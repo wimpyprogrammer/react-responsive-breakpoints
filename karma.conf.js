@@ -16,6 +16,7 @@ module.exports = (config) => {
 
 			reporters: [
 				{ type: 'lcovonly', subdir: '.' },
+				{ type: 'html', subdir: '.' },
 				{ type: 'text' },
 			],
 
