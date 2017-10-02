@@ -43,6 +43,8 @@ afterEach(() => {
 	viewport.reset();
 });
 
+after(() => sandbox.restore());
+
 describe('withBreakpointsCustom wraps another component', () => {
 	const OuterComponent = withBreakpointsCustom({}, InnerComponent);
 	const component = shallow(<OuterComponent foo="bar" />);
@@ -109,9 +111,14 @@ describe('withBreakpointsCustom detects breakpoint markers', () => {
 });
 
 describe('withBreakpointsCustom listens for changes', () => {
-	const spyAddEventListener = sandbox.spy(window, 'addEventListener');
-	const spyRemoveEventListener = sandbox.spy(window, 'removeEventListener');
 	let component;
+	let spyAddEventListener;
+	let spyRemoveEventListener;
+
+	before(() => {
+		spyAddEventListener = sandbox.spy(window, 'addEventListener');
+		spyRemoveEventListener = sandbox.spy(window, 'removeEventListener');
+	});
 
 	afterEach(() => component && component.unmount());
 
