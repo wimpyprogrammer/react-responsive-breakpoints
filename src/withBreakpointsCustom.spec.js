@@ -38,9 +38,11 @@ const InnerComponent = () => <div />;
 
 const sandbox = sinon.createSandbox();
 
-afterEach(() => {
+afterEach((done) => {
 	sandbox.reset();
 	viewport.reset();
+	// Resetting the viewport does not finish immediately.
+	setTimeout(done);
 });
 
 after(() => sandbox.restore());
