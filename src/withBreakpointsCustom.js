@@ -1,10 +1,11 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
+import noop from 'lodash.noop';
 import reduce from 'lodash.reduce';
 import throttle from 'lodash.throttle';
 
 function isVisible(markerEl) {
-	return markerEl && window.getComputedStyle(markerEl).display !== 'none';
+	return !!markerEl && window.getComputedStyle(markerEl).display !== 'none';
 }
 
 export default (options, InnerComponent) => {
@@ -19,7 +20,7 @@ export default (options, InnerComponent) => {
 		constructor(props) {
 			super(props);
 			// Calculate the initial breakpoints when the component first loads
-			this.recalculateBreakpoints();
+			this.state = calculateBreakpoints();
 			this.recalculateBreakpoints = throttle(this.recalculateBreakpoints.bind(this), 200);
 		}
 
@@ -28,11 +29,13 @@ export default (options, InnerComponent) => {
 		}
 
 		componentWillUnmount() {
+			this.recalculateBreakpoints.cancel();
 			window.removeEventListener('resize', this.recalculateBreakpoints);
 		}
 
 		recalculateBreakpoints() {
-			this.setState(calculateBreakpoints());
+			const { onRecalculateBreakpoints = noop } = options;
+			this.setState(calculateBreakpoints(), onRecalculateBreakpoints);
 		}
 
 		render() {
