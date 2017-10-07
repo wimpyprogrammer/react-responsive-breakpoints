@@ -11,6 +11,19 @@ import withBreakpointsCustom from './withBreakpointsCustom';
 
 const customStylesId = 'karma-test-styles';
 
+/**
+ * Accurately report async assertion failures.
+ * From https://stackoverflow.com/a/15208067.
+ */
+function assertAsync(done, fnAssertions) {
+	try {
+		fnAssertions();
+		done();
+	} catch (err) {
+		done(err);
+	}
+}
+
 function removeCustomStyles() {
 	const styleSheet = document.getElementById(customStylesId);
 	if (!styleSheet) { return; }
@@ -147,6 +160,58 @@ describe('withBreakpointsCustom listens for changes', () => {
 
 		expect(spyRemoveEventListener).to.have.been.calledWith('resize');
 	});
+});
+
+describe('withBreakpointsCustom throttles updates', () => {
+	let component;
+
+	afterEach(() => component && component.unmount());
+
+	it('should update once after successive window resizes', (done) => {
+		const onRecalculateBreakpoints = sandbox.spy();
+		const OuterComponent = withBreakpointsCustom({ onRecalculateBreakpoints }, InnerComponent);
+		component = mount(<OuterComponent />);
+
+		[200, 205, 210, 215].forEach(width => resizeWindowToWidth(width));
+
+		const assertions = () => expect(onRecalculateBreakpoints).to.have.been.calledOnce();
+		setTimeout(() => assertAsync(done, assertions), 500);
+	}).timeout(1000);
+
+	it('should update after each periodic window resize', (done) => {
+		const onRecalculateBreakpoints = sandbox.spy();
+		const OuterComponent = withBreakpointsCustom({ onRecalculateBreakpoints }, InnerComponent);
+		component = mount(<OuterComponent />);
+
+		setTimeout(() => resizeWindowToWidth(200), 500);
+		setTimeout(() => resizeWindowToWidth(300), 1000);
+		setTimeout(() => resizeWindowToWidth(400), 1500);
+
+		const assertions = () => expect(onRecalculateBreakpoints).to.have.been.calledThrice();
+		setTimeout(() => assertAsync(done, assertions), 2000);
+	}).timeout(2500);
+
+	it('should update after successive and periodic window resizes', (done) => {
+		const onRecalculateBreakpoints = sandbox.spy();
+		const OuterComponent = withBreakpointsCustom({ onRecalculateBreakpoints }, InnerComponent);
+		component = mount(<OuterComponent />);
+
+		setTimeout(() => {
+			resizeWindowToWidth(200);
+			resizeWindowToWidth(250);
+		}, 500);
+		setTimeout(() => {
+			resizeWindowToWidth(300);
+			resizeWindowToWidth(350);
+		}, 1000);
+		setTimeout(() => {
+			resizeWindowToWidth(400);
+			resizeWindowToWidth(450);
+		}, 1500);
+
+		const assertions = () => expect(onRecalculateBreakpoints).to.have.been.calledThrice();
+		setTimeout(() => assertAsync(done, assertions), 2000);
+	}).timeout(2500);
 });
 
 describe('withBreakpointsCustom recalculates breakpoint markers', () => {
