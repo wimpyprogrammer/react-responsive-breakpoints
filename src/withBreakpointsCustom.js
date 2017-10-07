@@ -29,6 +29,7 @@ export default (options, InnerComponent) => {
 		}
 
 		componentWillUnmount() {
+			this.recalculateBreakpoints.cancel();
 			window.removeEventListener('resize', this.recalculateBreakpoints);
 		}
 
