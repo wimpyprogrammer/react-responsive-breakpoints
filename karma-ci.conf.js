@@ -16,6 +16,10 @@ const ciConfig = merge(commonConfig, {
 
 	sauceLabs: {
 		testName: 'Library Karma Tests',
+
+		connectOptions: {
+			doctor: true,
+		},
 	},
 
 	customLaunchers: browsersToTest,
