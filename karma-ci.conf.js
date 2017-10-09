@@ -20,6 +20,9 @@ const ciConfig = merge(commonConfig, {
 
 		connectOptions: {
 			doctor: true,
+			verbose: true,
+			verboseDebugging: true,
+			vv: true,
 		},
 	},
 
