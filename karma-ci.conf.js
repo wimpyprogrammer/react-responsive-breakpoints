@@ -17,6 +17,9 @@ const ciConfig = merge(commonConfig, {
 
 	port: 9876,
 
+	// Don't abort slow-running builds
+	captureTimeout: 0,
+
 	sauceLabs: {
 		testName: 'Library Karma Tests',
 		public: 'public',
