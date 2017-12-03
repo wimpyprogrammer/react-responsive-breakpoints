@@ -51,16 +51,16 @@
     "karma-webpack": "^2.0.4",
     "lodash.merge": "^4.6.0",
     "mocha": "^3.5.3",
-    "react": "*",
-    "react-addons-test-utils": "*",
-    "react-dom": "*",
-    "react-test-renderer": "*",
+    "react": "<= 15",
+    "react-addons-test-utils": "<= 15",
+    "react-dom": "<= 15",
+    "react-test-renderer": "<= 15",
     "rimraf": "^2.6.2",
     "sinon": "^3.2.1",
     "sinon-chai": "^2.13.0",
     "webpack": "^3.6.0"
   },
   "peerDependencies": {
-    "react": "*"
+    "react": "<= 15"
   }
 }
