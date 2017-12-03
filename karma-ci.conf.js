@@ -15,11 +15,18 @@ const browsersToTest = {
 const ciConfig = merge(commonConfig, {
 	reporters: ['saucelabs'],
 
+	port: 9876,
+
 	sauceLabs: {
 		testName: 'Library Karma Tests',
+		public: 'public',
+		startConnect: true,
 
 		connectOptions: {
 			doctor: true,
+			logfile: 'sauce_connect.log',
+			port: 5757,
+			startConnect: true,
 			verbose: true,
 			verboseDebugging: true,
 			vv: true,
@@ -40,6 +47,8 @@ module.exports = (config) => {
 		if (!SAUCE_ACCESS_KEY) console.log('Sauce Labs access key not set.');
 		process.exit(1);
 	}
+
+	ciConfig.logLevel = config.LOG_DEBUG;
 
 	config.set(ciConfig);
 };
