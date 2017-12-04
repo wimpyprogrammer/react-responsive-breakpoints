@@ -4,7 +4,7 @@ const merge = require('lodash.merge');
 const commonConfig = require('./karma-common.conf');
 
 const { TRAVIS_JOB_NUMBER } = process.env;
-const sauceConnectLogfile = `react-responsive-breakpoints/${TRAVIS_JOB_NUMBER}/sauce_connect.log`;
+const sauceConnectLogfile = `react-responsive-breakpoints.${TRAVIS_JOB_NUMBER}.sauce_connect.log`;
 
 const browsersToTest = {
 	sl_win10_chrome61: {
