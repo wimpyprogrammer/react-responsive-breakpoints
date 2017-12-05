@@ -16,4 +16,4 @@ addons:
 before_script:
   - mkdir -p artifacts/$TRAVIS_REPO_SLUG/$TRAVIS_JOB_NUMBER/
 script:
-  - npm run travisci
+  - travis_wait 30 npm run travisci
