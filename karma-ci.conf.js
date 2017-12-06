@@ -3,6 +3,8 @@
 const merge = require('lodash.merge');
 const commonConfig = require('./karma-common.conf');
 
+const isDebugMode = process.env.DEBUG;
+
 const browsersToTest = {
 	sl_win10_chrome61: {
 		base: 'SauceLabs',
@@ -28,9 +30,9 @@ const ciConfig = merge(commonConfig, {
 		connectOptions: {
 			doctor: false, // replace Karma tests with network diagnostics
 			logfile: 'artifacts/sauce_connect.log',
-			verbose: true,
-			verboseDebugging: true,
-			vv: true,
+			verbose: isDebugMode,
+			verboseDebugging: isDebugMode,
+			vv: isDebugMode,
 		},
 	},
 
@@ -49,7 +51,7 @@ module.exports = (config) => {
 		process.exit(1);
 	}
 
-	ciConfig.logLevel = config.LOG_DEBUG;
+	ciConfig.logLevel = isDebugMode ? config.LOG_DEBUG : config.LOG_INFO;
 
 	config.set(ciConfig);
 };
