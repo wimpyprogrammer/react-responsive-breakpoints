@@ -28,7 +28,6 @@ const ciConfig = merge(commonConfig, {
 		connectOptions: {
 			doctor: true,
 			logfile: 'artifacts/sauce_connect.log',
-			port: 5757,
 			verbose: true,
 			verboseDebugging: true,
 			vv: true,
