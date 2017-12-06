@@ -3,9 +3,6 @@
 const merge = require('lodash.merge');
 const commonConfig = require('./karma-common.conf');
 
-const { TRAVIS_JOB_NUMBER, TRAVIS_REPO_SLUG } = process.env;
-const sauceConnectLogfile = `artifacts/${TRAVIS_REPO_SLUG}/${TRAVIS_JOB_NUMBER}/sauce_connect.log`;
-
 const browsersToTest = {
 	sl_win10_chrome61: {
 		base: 'SauceLabs',
@@ -30,7 +27,7 @@ const ciConfig = merge(commonConfig, {
 
 		connectOptions: {
 			doctor: true,
-			logfile: sauceConnectLogfile,
+			logfile: 'artifacts/sauce_connect.log',
 			port: 5757,
 			verbose: true,
 			verboseDebugging: true,
