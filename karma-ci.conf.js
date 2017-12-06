@@ -26,7 +26,7 @@ const ciConfig = merge(commonConfig, {
 		startConnect: true,
 
 		connectOptions: {
-			doctor: true,
+			doctor: false, // replace Karma tests with network diagnostics
 			logfile: 'artifacts/sauce_connect.log',
 			verbose: true,
 			verboseDebugging: true,
