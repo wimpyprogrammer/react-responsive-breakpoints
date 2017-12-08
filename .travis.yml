@@ -16,7 +16,7 @@ addons:
 before_script:
   - mkdir -p -v artifacts/
 script:
-  - npm run travisci
+  - travis_wait 30 npm run travisci
 after_script:
   - find artifacts/ -name "*.log"
   - cat artifacts/sauce_connect.log
