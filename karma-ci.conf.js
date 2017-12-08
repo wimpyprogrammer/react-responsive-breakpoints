@@ -3,7 +3,7 @@
 const merge = require('lodash.merge');
 const commonConfig = require('./karma-common.conf');
 
-const isDebugMode = process.env.DEBUG;
+const { DEBUG: isDebugMode, TRAVIS: isTravisCi } = process.env;
 
 const browsersToTest = {
 	sl_win10_chrome61: {
@@ -26,7 +26,7 @@ const ciConfig = merge(commonConfig, {
 	sauceLabs: {
 		testName: 'Library Karma Tests',
 		public: 'public',
-		startConnect: true,
+		startConnect: !isTravisCi,
 
 		connectOptions: {
 			// doctor: true, // replace Karma tests with network diagnostics
