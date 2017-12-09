@@ -1,5 +1,5 @@
-module.exports = (config) => {
-	config.set({
+module.exports = (
+	{
 		frameworks: ['mocha', 'viewport'],
 
 		files: [
@@ -43,5 +43,5 @@ module.exports = (config) => {
 		webpackMiddleware: {
 			noInfo: true,
 		},
-	});
-};
+	}
+);
