@@ -8,6 +8,7 @@ import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
 import withBreakpointsCustom from './withBreakpointsCustom';
+import '../test-setup';
 
 const customStylesId = 'karma-test-styles';
 
@@ -233,6 +234,8 @@ describe('withBreakpointsCustom recalculates breakpoint markers', () => {
 
 		let innerComponent;
 		const onRecalculateBreakpoints = () => {
+			component.update();
+			innerComponent = component.find(InnerComponent);
 			expect(innerComponent.props()).to.deep.equal({ isSizeSm: true });
 			done();
 		};
