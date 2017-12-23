@@ -5,7 +5,10 @@ env:
   global:
     - SAUCE_USERNAME=wimpyprogrammer
   matrix:
+    - REACT_VERSION=0.13
+    - REACT_VERSION=0.14
     - REACT_VERSION=15
+    - REACT_VERSION=16
 addons:
   artifacts:
     paths:
@@ -15,6 +18,7 @@ addons:
   sauce_connect: true
 before_script:
   - mkdir -p -v artifacts/
+  - ./install-dependencies.sh || echo "ignoring errors during setup"
 script:
   - travis_wait 30 npm run travisci
 after_script:
