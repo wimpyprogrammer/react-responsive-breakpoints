@@ -2,7 +2,7 @@
 /* global viewport:false */ // viewport provided by karma-viewport
 import chai, { expect } from 'chai';
 import dirtyChai from 'dirty-chai';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import React from 'react';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -127,7 +127,6 @@ describe('withBreakpointsCustom detects breakpoint markers', () => {
 });
 
 describe('withBreakpointsCustom listens for changes', () => {
-	let component;
 	let spyAddEventListener;
 	let spyRemoveEventListener;
 
@@ -136,11 +135,9 @@ describe('withBreakpointsCustom listens for changes', () => {
 		spyRemoveEventListener = sandbox.spy(window, 'removeEventListener');
 	});
 
-	afterEach(() => component && component.unmount());
-
 	it('should listen for window resize on mount', () => {
 		const OuterComponent = withBreakpointsCustom({}, InnerComponent);
-		component = mount(<OuterComponent />);
+		shallow(<OuterComponent />);
 
 		expect(spyAddEventListener).to.have.been.calledWith('resize');
 		expect(spyRemoveEventListener).not.to.have.been.calledWith('resize');
@@ -150,28 +147,24 @@ describe('withBreakpointsCustom listens for changes', () => {
 		const onRecalculateBreakpoints = () => done();
 		const OuterComponent = withBreakpointsCustom({ onRecalculateBreakpoints }, InnerComponent);
 
-		component = mount(<OuterComponent />);
+		shallow(<OuterComponent />);
 
 		resizeWindowToWidth(200);
 	});
 
 	it('should end listen for window resize on unmount', () => {
 		const OuterComponent = withBreakpointsCustom({}, InnerComponent);
-		mount(<OuterComponent />).unmount();
+		shallow(<OuterComponent />).unmount();
 
 		expect(spyRemoveEventListener).to.have.been.calledWith('resize');
 	});
 });
 
 describe('withBreakpointsCustom throttles updates', () => {
-	let component;
-
-	afterEach(() => component && component.unmount());
-
 	it('should update once after successive window resizes', (done) => {
 		const onRecalculateBreakpoints = sandbox.spy();
 		const OuterComponent = withBreakpointsCustom({ onRecalculateBreakpoints }, InnerComponent);
-		component = mount(<OuterComponent />);
+		shallow(<OuterComponent />);
 
 		[200, 205, 210, 215].forEach(width => resizeWindowToWidth(width));
 
@@ -182,7 +175,7 @@ describe('withBreakpointsCustom throttles updates', () => {
 	it('should update after each periodic window resize', (done) => {
 		const onRecalculateBreakpoints = sandbox.spy();
 		const OuterComponent = withBreakpointsCustom({ onRecalculateBreakpoints }, InnerComponent);
-		component = mount(<OuterComponent />);
+		shallow(<OuterComponent />);
 
 		setTimeout(() => resizeWindowToWidth(200), 500);
 		setTimeout(() => resizeWindowToWidth(300), 1000);
@@ -195,7 +188,7 @@ describe('withBreakpointsCustom throttles updates', () => {
 	it('should update after successive and periodic window resizes', (done) => {
 		const onRecalculateBreakpoints = sandbox.spy();
 		const OuterComponent = withBreakpointsCustom({ onRecalculateBreakpoints }, InnerComponent);
-		component = mount(<OuterComponent />);
+		shallow(<OuterComponent />);
 
 		setTimeout(() => {
 			resizeWindowToWidth(200);
@@ -216,11 +209,9 @@ describe('withBreakpointsCustom throttles updates', () => {
 });
 
 describe('withBreakpointsCustom recalculates breakpoint markers', () => {
-	let component;
-
-	afterEach(() => component.unmount());
-
 	it('should recalculate on resize', (done) => {
+		let component;
+
 		addCustomStyles(`
 			#marker { display: none; }
 			@media (max-width: 700px) {
@@ -248,7 +239,7 @@ describe('withBreakpointsCustom recalculates breakpoint markers', () => {
 			InnerComponent,
 		);
 
-		component = mount(<OuterComponent />);
+		component = shallow(<OuterComponent />);
 		innerComponent = component.find(InnerComponent);
 		expect(innerComponent.props()).to.deep.equal({ isSizeSm: false });
 

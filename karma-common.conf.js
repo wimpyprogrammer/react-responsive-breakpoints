@@ -24,10 +24,10 @@ module.exports = (
 
 		webpack: {
 
-			externals: {
-				'react/lib/ExecutionEnvironment': true,
-				'react/addons': true,
-				'react/lib/ReactContext': 'window',
+			resolve: {
+				alias: {
+					'react/addons': `${__dirname}/node_modules/react/dist/react-with-addons.js`,
+				},
 			},
 
 			module: {
