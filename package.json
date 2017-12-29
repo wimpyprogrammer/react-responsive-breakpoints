@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean && babel src --out-dir lib",
     "clean": "rimraf lib",
-    "install-react": "enzyme-adapter-react-install 16",
+    "install-react": "enzyme-adapter-react-install 16 || echo \"ignoring install errors\"",
     "lint": "eslint ./",
     "test": "cross-env NODE_ENV=test karma start karma-local.conf.js",
     "test:ci": "cross-env NODE_ENV=test karma start karma-ci.conf.js",
@@ -38,7 +38,7 @@
     "codecov": "^3.0.0",
     "cross-env": "^5.0.5",
     "dirty-chai": "^2.0.1",
-    "enzyme": "^3.2.0",
+    "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "enzyme-adapter-react-helper": "^1.2.2",
     "eslint": "^4.6.1",
