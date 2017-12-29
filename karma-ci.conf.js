@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 const merge = require('lodash.merge');
 const commonConfig = require('./karma-common.conf');
+const { name, version } = require('./package.json');
 
 const { DEBUG: isDebugMode, TRAVIS: isTravisCi, TRAVIS_JOB_NUMBER } = process.env;
 
@@ -24,7 +25,7 @@ const ciConfig = merge(commonConfig, {
 	browserNoActivityTimeout: 60 * 1000,
 
 	sauceLabs: {
-		testName: 'Library Karma Tests',
+		testName: `${name} ${version} ${TRAVIS_JOB_NUMBER}`,
 		public: 'public',
 		startConnect: !isTravisCi,
 		tunnelIdentifier: TRAVIS_JOB_NUMBER,
