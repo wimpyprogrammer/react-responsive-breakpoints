@@ -1,5 +1,5 @@
-const commonConfig = require('./karma-common.conf');
+import commonConfig from './karma-common.conf';
 
 const localConfig = commonConfig;
 
-module.exports = config => config.set(localConfig);
+export default config => config.set(localConfig);

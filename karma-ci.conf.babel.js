@@ -1,8 +1,8 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 /* eslint-disable no-console */
-const merge = require('lodash.merge');
-const commonConfig = require('./karma-common.conf');
-const { name, version } = require('./package.json');
+import merge from 'lodash.merge';
+import commonConfig from './karma-common.conf';
+import { name, version } from './package.json';
 
 const { DEBUG: isDebugMode, TRAVIS: isTravisCi, TRAVIS_JOB_NUMBER } = process.env;
 
@@ -70,7 +70,7 @@ const ciConfig = merge(commonConfig, {
 	singleRun: true,
 });
 
-module.exports = (config) => {
+export default (config) => {
 	const { SAUCE_USERNAME, SAUCE_ACCESS_KEY } = process.env;
 	if (!SAUCE_USERNAME || !SAUCE_ACCESS_KEY) {
 		if (!SAUCE_USERNAME) console.log('Sauce Labs username not set.');
