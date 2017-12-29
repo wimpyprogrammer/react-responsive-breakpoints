@@ -7,11 +7,35 @@ const { name, version } = require('./package.json');
 const { DEBUG: isDebugMode, TRAVIS: isTravisCi, TRAVIS_JOB_NUMBER } = process.env;
 
 const browsersToTest = {
-	sl_win10_chrome61: {
+	sl_win10_chrome: {
 		base: 'SauceLabs',
 		browserName: 'chrome',
 		platform: 'Windows 10',
-		version: '61.0',
+		version: 'latest',
+	},
+	sl_win10_firefox: {
+		base: 'SauceLabs',
+		browserName: 'firefox',
+		platform: 'Windows 10',
+		version: 'latest',
+	},
+	sl_win10_ie11: {
+		base: 'SauceLabs',
+		browserName: 'internet explorer',
+		platform: 'Windows 10',
+		version: '11.103',
+	},
+	sl_win10_edge16: {
+		base: 'SauceLabs',
+		browserName: 'MicrosoftEdge',
+		platform: 'Windows 10',
+		version: '16.16299',
+	},
+	sl_mac1013_: {
+		base: 'SauceLabs',
+		browserName: 'safari',
+		platform: 'macOS 10.13',
+		version: '11.0',
 	},
 };
 
