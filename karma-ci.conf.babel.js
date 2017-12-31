@@ -40,7 +40,7 @@ const browsersToTest = {
 };
 
 const ciConfig = merge(commonConfig, {
-	reporters: ['saucelabs'],
+	reporters: commonConfig.reporters.concat('saucelabs'),
 
 	port: 9876,
 
