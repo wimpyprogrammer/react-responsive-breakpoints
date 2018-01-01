@@ -62,8 +62,12 @@ afterEach((done) => {
 after(() => sandbox.restore());
 
 describe('withBreakpointsCustom wraps another component', () => {
-	const OuterComponent = withBreakpointsCustom({}, InnerComponent);
-	const component = shallow(<OuterComponent foo="bar" />);
+	let component;
+
+	before(() => {
+		const OuterComponent = withBreakpointsCustom({}, InnerComponent);
+		component = shallow(<OuterComponent foo="bar" />);
+	});
 
 	it('should render', () => {
 		expect(component).to.exist();
