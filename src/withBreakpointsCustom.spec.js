@@ -165,14 +165,18 @@ describe('withBreakpointsCustom listens for changes', () => {
 });
 
 describe('withBreakpointsCustom throttles updates', () => {
-	it('should update once after successive window resizes', (done) => {
+	it('should update on initial and after successive window resizes', (done) => {
 		const onRecalculateBreakpoints = sandbox.spy();
 		const OuterComponent = withBreakpointsCustom({ onRecalculateBreakpoints }, InnerComponent);
 		shallow(<OuterComponent />);
 
 		[200, 205, 210, 215].forEach(width => resizeWindowToWidth(width));
 
-		const assertions = () => expect(onRecalculateBreakpoints).to.have.been.calledOnce();
+		const assertions = () => {
+			// Some browsers may throttle successive resizes to a single event.  Otherwise
+			// the library will throttle to two events, one leading and one trailing.
+			expect(onRecalculateBreakpoints.callCount).to.be.oneOf([1, 2]);
+		};
 		setTimeout(() => assertAsync(done, assertions), 500);
 	}).timeout(1000);
 
@@ -189,25 +193,32 @@ describe('withBreakpointsCustom throttles updates', () => {
 		setTimeout(() => assertAsync(done, assertions), 2000);
 	}).timeout(2500);
 
-	it('should update after successive and periodic window resizes', (done) => {
+	it('should update on initial and after successive window resizes over a period', (done) => {
 		const onRecalculateBreakpoints = sandbox.spy();
 		const OuterComponent = withBreakpointsCustom({ onRecalculateBreakpoints }, InnerComponent);
 		shallow(<OuterComponent />);
 
 		setTimeout(() => {
 			resizeWindowToWidth(200);
+			resizeWindowToWidth(225);
 			resizeWindowToWidth(250);
 		}, 500);
 		setTimeout(() => {
 			resizeWindowToWidth(300);
+			resizeWindowToWidth(325);
 			resizeWindowToWidth(350);
 		}, 1000);
 		setTimeout(() => {
 			resizeWindowToWidth(400);
+			resizeWindowToWidth(425);
 			resizeWindowToWidth(450);
 		}, 1500);
 
-		const assertions = () => expect(onRecalculateBreakpoints).to.have.been.calledThrice();
+		const assertions = () => {
+			// Some browsers may throttle successive resizes to a single event.  Otherwise
+			// the library will throttle to two events, one leading and one trailing.
+			expect(onRecalculateBreakpoints.callCount).to.oneOf([3, 6]);
+		};
 		setTimeout(() => assertAsync(done, assertions), 2000);
 	}).timeout(2500);
 });
