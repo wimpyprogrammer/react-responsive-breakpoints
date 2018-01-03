@@ -6,11 +6,13 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
+import once from 'lodash.once';
 
 import withBreakpointsCustom from './withBreakpointsCustom';
 import '../test-setup';
 
 const customStylesId = 'karma-test-styles';
+let isWindowResized = false;
 
 /**
  * Accurately report async assertion failures.
@@ -43,6 +45,7 @@ function addCustomStyles(cssDeclarations) {
 
 function resizeWindowToWidth(newWidth) {
 	viewport.set(newWidth);
+	isWindowResized = true;
 }
 
 chai.use(dirtyChai);
@@ -54,9 +57,15 @@ const sandbox = sinon.createSandbox();
 
 afterEach((done) => {
 	sandbox.reset();
-	viewport.reset();
-	// Resetting the viewport does not finish immediately.
-	setTimeout(done);
+
+	if (isWindowResized) {
+		viewport.reset();
+		isWindowResized = false;
+		// Resetting the viewport does not finish immediately.
+		window.addEventListener('resize', once(() => done()));
+	} else {
+		done();
+	}
 });
 
 after(() => sandbox.restore());
