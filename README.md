@@ -5,6 +5,8 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/wimpyprogrammer/react-responsive-breakpoints/badge.svg)](https://snyk.io/test/github/wimpyprogrammer/react-responsive-breakpoints)
 [![Greenkeeper badge](https://badges.greenkeeper.io/wimpyprogrammer/react-responsive-breakpoints.svg)](https://greenkeeper.io/)
 
+[![Build Status](https://saucelabs.com/browser-matrix/wimpyprogrammer.svg)](https://saucelabs.com/beta/builds/0645fda2076745e390ca9b938c2dc721)
+
 A higher-order React component to translate CSS breakpoints into properties.
 
 Libraries like [`react-responsive`](https://www.npmjs.com/package/react-responsive) and [`react-responsive-component`](https://www.npmjs.com/package/react-responsive-component) let you specify media queries in your React code.  But if you're using a responsive CSS framework like [Bootstrap](https://getbootstrap.com/), [Foundation](https://foundation.zurb.com/), or even a homegrown one, you probably want your React components to mirror your existing CSS breakpoints without duplicating them in JavaScript.
@@ -100,4 +102,4 @@ return (
 
 ## License
 
-[MIT](/LICENSE.md)
+[MIT](/LICENSE)

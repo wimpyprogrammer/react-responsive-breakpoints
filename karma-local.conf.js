@@ -1,5 +1,4 @@
-const commonConfig = require('./karma-common.conf');
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
+require('babel-register');
 
-const localConfig = commonConfig;
-
-module.exports = config => config.set(localConfig);
+module.exports = require('./karma-local.conf.babel').default;

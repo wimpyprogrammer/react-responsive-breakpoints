@@ -21,16 +21,16 @@ export default (options, InnerComponent) => {
 			super(props);
 			// Calculate the initial breakpoints when the component first loads
 			this.state = calculateBreakpoints();
-			this.recalculateBreakpoints = throttle(this.recalculateBreakpoints.bind(this), 200);
+			this.recalculateBreakpointsThrottled = throttle(this.recalculateBreakpoints.bind(this), 200);
 		}
 
 		componentDidMount() {
-			window.addEventListener('resize', this.recalculateBreakpoints);
+			window.addEventListener('resize', this.recalculateBreakpointsThrottled);
 		}
 
 		componentWillUnmount() {
-			this.recalculateBreakpoints.cancel();
-			window.removeEventListener('resize', this.recalculateBreakpoints);
+			this.recalculateBreakpointsThrottled.cancel();
+			window.removeEventListener('resize', this.recalculateBreakpointsThrottled);
 		}
 
 		recalculateBreakpoints() {
