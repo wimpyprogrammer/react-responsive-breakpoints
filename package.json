@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A higher-order React component to translate CSS breakpoints into properties",
   "main": "src/index.js",
+  "files": [
+    "lib/**/!(*.spec).js"
+  ],
   "scripts": {
     "build": "npm run clean && babel src --out-dir lib",
     "clean": "rimraf lib",
