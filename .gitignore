@@ -57,3 +57,13 @@ typings/
 # dotenv environment variables file
 .env
 
+# Compiled code
+lib/
+
+# Vagrant development environment
+.vagrant/
+Vagrantfile
+puphpet/
+
+# VisualStudioCode
+.vscode/*
