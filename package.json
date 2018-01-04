@@ -14,7 +14,7 @@
     "test": "cross-env NODE_ENV=test karma start karma-local.conf.js",
     "test:ci": "cross-env NODE_ENV=test karma start karma-ci.conf.js",
     "travisci": "npm run install-react && npm run lint && npm run test:ci && codecov",
-    "publish-please": "publish-please",
+    "publish-please": "npm run build && publish-please",
     "prepublish": "publish-please guard"
   },
   "repository": {
