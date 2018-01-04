@@ -59,3 +59,11 @@ typings/
 
 # Compiled code
 lib/
+
+# Vagrant development environment
+.vagrant/
+Vagrantfile
+puphpet/
+
+# VisualStudioCode
+.vscode/*
