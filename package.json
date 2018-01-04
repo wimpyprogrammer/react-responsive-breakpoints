@@ -2,7 +2,7 @@
   "name": "react-responsive-breakpoints",
   "version": "1.0.0",
   "description": "A higher-order React component to translate CSS breakpoints into properties",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "files": [
     "lib/**/!(*.spec).js"
   ],
