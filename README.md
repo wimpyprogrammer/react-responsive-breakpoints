@@ -11,6 +11,10 @@ A higher-order React component to translate CSS breakpoints into properties.
 
 Libraries like [`react-responsive`](https://www.npmjs.com/package/react-responsive) and [`react-responsive-component`](https://www.npmjs.com/package/react-responsive-component) let you specify media queries in your React code.  But if you're using a responsive CSS framework like [Bootstrap](https://getbootstrap.com/), [Foundation](https://foundation.zurb.com/), or even a homegrown one, you probably want your React components to mirror your existing CSS breakpoints without duplicating them in JavaScript.
 
+## [Demo on CodeSandbox]((https://codesandbox.io/s/1vwkk6rml3?module=%2FResponsiveButton.js))
+
+[![react-responsive-breakpoints Demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/1vwkk6rml3?module=%2FResponsiveButton.js)
+
 ## Installation
 
 Published on `npm` as [`react-responsive-breakpoints`](https://www.npmjs.com/package/react-responsive-breakpoints).
