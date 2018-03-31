@@ -58,7 +58,7 @@
     "karma-mocha": "^1.3.0",
     "karma-mocha-reporter": "^2.2.4",
     "karma-sauce-launcher": "^1.2.0",
-    "karma-viewport": "^0.4.2",
+    "karma-viewport": "^1.0.0",
     "karma-webpack": "^2.0.4",
     "lodash.merge": "^4.6.0",
     "lodash.once": "^4.1.1",
@@ -68,7 +68,7 @@
     "react-dom": "*",
     "react-test-renderer": "*",
     "rimraf": "^2.6.2",
-    "sinon": "^4.1.3",
+    "sinon": "^5.0.0",
     "sinon-chai": "^3.0.0",
     "webpack": "^4.4.0"
   },
