@@ -1,5 +1,6 @@
 # react-responsive-breakpoints
 
+![node version](https://img.shields.io/node/v/react-responsive-breakpoints.svg)
 [![Build Status](https://travis-ci.org/wimpyprogrammer/react-responsive-breakpoints.svg?branch=feature%2Fautomated-builds)](https://travis-ci.org/wimpyprogrammer/react-responsive-breakpoints)
 [![codecov](https://codecov.io/gh/wimpyprogrammer/react-responsive-breakpoints/branch/master/graph/badge.svg)](https://codecov.io/gh/wimpyprogrammer/react-responsive-breakpoints)
 [![Known Vulnerabilities](https://snyk.io/test/github/wimpyprogrammer/react-responsive-breakpoints/badge.svg)](https://snyk.io/test/github/wimpyprogrammer/react-responsive-breakpoints)
