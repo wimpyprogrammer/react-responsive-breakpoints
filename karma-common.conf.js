@@ -24,6 +24,8 @@ module.exports = (
 
 		webpack: {
 
+			mode: 'development',
+
 			resolve: {
 				alias: {
 					'react/addons': `${__dirname}/node_modules/react/dist/react-with-addons.js`,
@@ -31,8 +33,14 @@ module.exports = (
 			},
 
 			module: {
-				loaders: [
-					{ test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+				rules: [
+					{
+						test: /\.js$/,
+						exclude: /node_modules/,
+						use: {
+							loader: 'babel-loader',
+						},
+					},
 				],
 			},
 
