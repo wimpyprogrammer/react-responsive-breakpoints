@@ -56,7 +56,7 @@ const InnerComponent = () => <div />;
 const sandbox = sinon.createSandbox();
 
 afterEach((done) => {
-	sandbox.reset();
+	sandbox.resetHistory();
 
 	if (isWindowResized) {
 		viewport.reset();
