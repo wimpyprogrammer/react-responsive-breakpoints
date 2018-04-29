@@ -14,8 +14,6 @@ addons:
   artifacts:
     paths:
     - artifacts/
-  jwt:
-    secure: DI9J+mvFZNvINUcq//aq1+HtWlWcphVTaSAmifQ1DYAKcQ8nEXaQYds1Fzu0yeW2KfAH6rWxNsdmHIPkgzJxP50lXyuUYVKisU1y0jVpkKQSZBNB6hTRNSJxVk7ZqPDa78/zfUuiVUszUuTIBymFod3yq1zYdwJ8eUQmc25tTZ2GcmfAUmsO1qt48nFopxSgeVaduzm5fdvB8nkn+mEFWBBlICgPX0h4RVMzt6ozlX57iwvqVppErCphHuelOXcUQXmOUPIPN/MAR04ia8XBTYTh48ZrbI9RRxMJFfbnUiCDyPXKsznPgBGnQUFpFYIFSVYShz1i/j7h+jSvHDI0xorAviY/u0tWwa+qn+cOWaQFfSu4wkdcwDjpvkTKdY87Hi+uyzToyo1oNN479O907u4sRHNWHx3q6uquzEFm79K1XR3zK1AE4ElIlRa10GXiYS3vH1rUx1oUQVZJiEkwy+Vrl8pAp1Gwpq/lJpqj/Ps2C1LDPBX7c9tP7+R5sOM7pRGuhPK3zTqxelPoZ88urHGIPCnIN9O+8rjgOK1yqSWVufz29Y/wuvwvD7y+Uz99asyxS5HoqNrorcrQdEPznv3GoDU/gOZHMqTJWmbqkuHVU4T8lVvqgAIdfYzaXrzttpKCgeF5+jP3ThS358l+86c76XXf7eLWxHWU84LSr6Q=
   sauce_connect: true
 before_install:
   - nvm install-latest-npm
