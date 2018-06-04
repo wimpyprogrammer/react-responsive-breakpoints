@@ -35,7 +35,7 @@ const browsersToTest = {
 		base: 'SauceLabs',
 		browserName: 'safari',
 		platform: 'macOS 10.13',
-		version: '11.0',
+		version: '11.1',
 	},
 };
 
