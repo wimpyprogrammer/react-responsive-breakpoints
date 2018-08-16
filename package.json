@@ -48,7 +48,7 @@
     "codecov": "^3.0.1",
     "cross-env": "^5.0.5",
     "dirty-chai": "^2.0.1",
-    "enzyme": "^3.3.0",
+    "enzyme": "^3.4.2",
     "enzyme-adapter-react-16": "^1.1.0",
     "enzyme-adapter-react-helper": "^1.2.2",
     "eslint": "^5.0.1",
