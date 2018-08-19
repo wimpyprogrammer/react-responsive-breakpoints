@@ -67,3 +67,4 @@ puphpet/
 
 # VisualStudioCode
 .vscode/*
+artifacts/
