@@ -3,11 +3,11 @@ module.exports = (
 		frameworks: ['mocha', 'viewport'],
 
 		files: [
-			'src/**/*.js',
+			'test-setup.js',
 		],
 
 		preprocessors: {
-			'src/**/*.js': ['webpack'],
+			'test-setup.js': ['webpack'],
 		},
 
 		reporters: ['mocha', 'coverage'],
