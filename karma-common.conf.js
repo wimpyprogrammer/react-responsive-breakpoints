@@ -36,7 +36,10 @@ module.exports = (
 				rules: [
 					{
 						test: /\.js$/,
-						exclude: /node_modules/,
+						include: [
+							`${__dirname}/src/`,
+							`${__dirname}/node_modules/sinon/`,
+						],
 						use: {
 							loader: 'babel-loader',
 						},
