@@ -36,6 +36,7 @@
     "lodash.throttle": "^4.1.1"
   },
   "devDependencies": {
+    "airbnb-js-shims": "^2.1.0",
     "ajv": "^6.0.0",
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -73,7 +74,6 @@
     "rimraf": "^2.6.2",
     "sinon": "^6.0.1",
     "sinon-chai": "^3.0.0",
-    "string.prototype.startswith": "^0.2.0",
     "webpack": "^4.16.5"
   },
   "peerDependencies": {

@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 import configure from 'enzyme-adapter-react-helper';
 
-// Polyfill string.startsWith() required for Sinon
-import 'string.prototype.startswith';
+// ES2015 polyfills for Sinon and Enzyme
+import 'airbnb-js-shims/target/es2015';
 
 configure();
 
