@@ -1,4 +1,4 @@
-import withBreakpointsCustom from './withBreakpointsCustom';
+const withBreakpointsCustom = require('./withBreakpointsCustom').default;
 
 module.exports = {
 	withBreakpointsCustom,

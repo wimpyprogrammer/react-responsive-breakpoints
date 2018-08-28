@@ -3,11 +3,11 @@ module.exports = (
 		frameworks: ['mocha', 'viewport'],
 
 		files: [
-			'src/**/*.js',
+			'test-setup.js',
 		],
 
 		preprocessors: {
-			'src/**/*.js': ['webpack'],
+			'test-setup.js': ['webpack'],
 		},
 
 		reporters: ['mocha', 'coverage'],
@@ -36,7 +36,10 @@ module.exports = (
 				rules: [
 					{
 						test: /\.js$/,
-						exclude: /node_modules/,
+						include: [
+							`${__dirname}/src/`,
+							`${__dirname}/node_modules/sinon/`,
+						],
 						use: {
 							loader: 'babel-loader',
 						},
