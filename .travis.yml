@@ -24,3 +24,6 @@ script:
 after_script:
   - find artifacts/ -name "*.log"
   - cat artifacts/sauce_connect.log
+cache:
+  directories:
+    - node_modules
