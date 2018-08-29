@@ -3,11 +3,11 @@ module.exports = (
 		frameworks: ['mocha', 'viewport'],
 
 		files: [
-			'src/**/*.js',
+			'test-setup.js',
 		],
 
 		preprocessors: {
-			'src/**/*.js': ['webpack'],
+			'test-setup.js': ['webpack'],
 		},
 
 		reporters: ['mocha', 'coverage'],
@@ -24,6 +24,8 @@ module.exports = (
 
 		webpack: {
 
+			mode: 'development',
+
 			resolve: {
 				alias: {
 					'react/addons': `${__dirname}/node_modules/react/dist/react-with-addons.js`,
@@ -31,8 +33,17 @@ module.exports = (
 			},
 
 			module: {
-				loaders: [
-					{ test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+				rules: [
+					{
+						test: /\.js$/,
+						include: [
+							`${__dirname}/src/`,
+							`${__dirname}/node_modules/sinon/`,
+						],
+						use: {
+							loader: 'babel-loader',
+						},
+					},
 				],
 			},
 

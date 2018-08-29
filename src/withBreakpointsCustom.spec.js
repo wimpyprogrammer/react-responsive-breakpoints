@@ -9,7 +9,6 @@ import sinonChai from 'sinon-chai';
 import once from 'lodash.once';
 
 import withBreakpointsCustom from './withBreakpointsCustom';
-import '../test-setup';
 
 const customStylesId = 'karma-test-styles';
 let isWindowResized = false;
@@ -56,7 +55,7 @@ const InnerComponent = () => <div />;
 const sandbox = sinon.createSandbox();
 
 afterEach((done) => {
-	sandbox.reset();
+	sandbox.resetHistory();
 
 	if (isWindowResized) {
 		viewport.reset();
