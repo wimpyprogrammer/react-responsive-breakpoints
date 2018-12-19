@@ -29,6 +29,7 @@ module.exports = (
 			resolve: {
 				alias: {
 					'react/addons': `${__dirname}/node_modules/react/dist/react-with-addons.js`,
+					sinon$: `${__dirname}/node_modules/sinon/lib/sinon.js`,
 				},
 			},
 
@@ -38,7 +39,6 @@ module.exports = (
 						test: /\.js$/,
 						include: [
 							`${__dirname}/src/`,
-							`${__dirname}/node_modules/sinon/`,
 						],
 						use: {
 							loader: 'babel-loader',
