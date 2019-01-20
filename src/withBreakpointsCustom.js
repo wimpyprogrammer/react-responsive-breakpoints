@@ -1,6 +1,5 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
-import reduce from 'lodash.reduce';
 import throttle from 'lodash.throttle';
 
 function noop() {}
@@ -11,7 +10,9 @@ function isVisible(markerEl) {
 
 export default (options, InnerComponent) => {
 	function calculateBreakpoints() {
-		return reduce(options.breakpoints, (breakpoints, { prop, selector }) => {
+		const breakpointConfig = options.breakpoints || [];
+
+		return breakpointConfig.reduce((breakpoints, { prop, selector }) => {
 			const markerEl = document.querySelector(selector);
 			return { ...breakpoints, [prop]: isVisible(markerEl) };
 		}, {});
