@@ -1,8 +1,9 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
-import noop from 'lodash.noop';
 import reduce from 'lodash.reduce';
 import throttle from 'lodash.throttle';
+
+function noop() {}
 
 function isVisible(markerEl) {
 	return !!markerEl && window.getComputedStyle(markerEl).display !== 'none';
