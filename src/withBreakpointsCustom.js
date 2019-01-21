@@ -1,6 +1,6 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
-import throttle from 'lodash.throttle';
+import throttle from './helpers/throttle';
 
 function noop() {}
 
