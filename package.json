@@ -30,11 +30,6 @@
     "url": "https://github.com/wimpyprogrammer/react-responsive-breakpoints/issues"
   },
   "homepage": "https://github.com/wimpyprogrammer/react-responsive-breakpoints#readme",
-  "dependencies": {
-    "lodash.noop": "^3.0.1",
-    "lodash.reduce": "^4.6.0",
-    "lodash.throttle": "^4.1.1"
-  },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.0",
