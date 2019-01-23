@@ -1,8 +1,8 @@
 /* eslint-env browser */
 import React, { Component } from 'react';
-import noop from 'lodash.noop';
-import reduce from 'lodash.reduce';
-import throttle from 'lodash.throttle';
+import throttle from './helpers/throttle';
+
+function noop() {}
 
 function isVisible(markerEl) {
 	return !!markerEl && window.getComputedStyle(markerEl).display !== 'none';
@@ -10,7 +10,9 @@ function isVisible(markerEl) {
 
 export default (options, InnerComponent) => {
 	function calculateBreakpoints() {
-		return reduce(options.breakpoints, (breakpoints, { prop, selector }) => {
+		const breakpointConfig = options.breakpoints || [];
+
+		return breakpointConfig.reduce((breakpoints, { prop, selector }) => {
 			const markerEl = document.querySelector(selector);
 			return { ...breakpoints, [prop]: isVisible(markerEl) };
 		}, {});
