@@ -47,6 +47,7 @@ const ciConfig = merge(commonConfig, {
 	// Don't abort slow-running builds
 	captureTimeout: 0,
 	browserDisconnectTimeout: 60 * 1000,
+	browserDisconnectTolerance: 1,
 	browserNoActivityTimeout: 60 * 1000,
 
 	client: {
