@@ -46,7 +46,15 @@ const ciConfig = merge(commonConfig, {
 
 	// Don't abort slow-running builds
 	captureTimeout: 0,
+	browserDisconnectTimeout: 60 * 1000,
+	browserDisconnectTolerance: 2,
 	browserNoActivityTimeout: 60 * 1000,
+
+	client: {
+		mocha: {
+			timeout: 20 * 1000,
+		},
+	},
 
 	sauceLabs: {
 		testName: `${name} ${version} ${TRAVIS_JOB_NUMBER}`,
