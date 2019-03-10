@@ -5,7 +5,6 @@
 [![Build Status](https://travis-ci.org/wimpyprogrammer/react-responsive-breakpoints.svg?branch=master)](https://travis-ci.org/wimpyprogrammer/react-responsive-breakpoints)
 [![codecov](https://codecov.io/gh/wimpyprogrammer/react-responsive-breakpoints/branch/master/graph/badge.svg)](https://codecov.io/gh/wimpyprogrammer/react-responsive-breakpoints)
 [![Known Vulnerabilities](https://snyk.io/test/github/wimpyprogrammer/react-responsive-breakpoints/badge.svg)](https://snyk.io/test/github/wimpyprogrammer/react-responsive-breakpoints)
-[![Greenkeeper badge](https://badges.greenkeeper.io/wimpyprogrammer/react-responsive-breakpoints.svg)](https://greenkeeper.io/)
 
 [![Build Status](https://saucelabs.com/browser-matrix/wimpyprogrammer.svg)](https://saucelabs.com/beta/builds/0645fda2076745e390ca9b938c2dc721)
 
