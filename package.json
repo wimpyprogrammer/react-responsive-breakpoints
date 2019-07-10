@@ -18,7 +18,8 @@
     "test:ci": "cross-env NODE_ENV=test karma start karma-ci.conf.js",
     "travisci": "npm run install-react && npm run lint && npm run test:ci && codecov",
     "publish-please": "npm run build && publish-please",
-    "prepublish": "publish-please guard"
+    "prepublish": "npm run snyk-protect; publish-please guard",
+    "snyk-protect": "snyk protect"
   },
   "repository": {
     "type": "git",
@@ -72,5 +73,9 @@
   },
   "peerDependencies": {
     "react": "*"
+  },
+  "snyk": true,
+  "dependencies": {
+    "snyk": "^1.192.4"
   }
 }
