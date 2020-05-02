@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 import configure from 'enzyme-adapter-react-helper';
 
-// ES2015 polyfills for Sinon and Enzyme
-import 'airbnb-js-shims/target/es2015';
+// Load Sinon and Enzyme polyfills. Refined by useBuiltIns: "entry" in .babelrc.
+import 'core-js/stable';
 
 configure();
 
