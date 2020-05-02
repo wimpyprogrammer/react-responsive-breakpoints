@@ -60,7 +60,7 @@
     "karma-webpack": "^3.0.5",
     "lodash.merge": "^4.6.0",
     "lodash.once": "^4.1.1",
-    "mocha": "^6.0.2",
+    "mocha": "^7.1.1",
     "publish-please": "^5.4.3",
     "react": "*",
     "react-dom": "*",
