@@ -17,8 +17,8 @@
     "test": "cross-env NODE_ENV=test karma start karma-local.conf.js",
     "test:ci": "cross-env NODE_ENV=test karma start karma-ci.conf.js",
     "travisci": "npm run install-react && npm run lint && npm run test:ci && codecov && npx snyk test",
-    "publish-please": "npm run build && publish-please",
-    "prepublish": "publish-please guard"
+    "publish-please": "npm run build && npx publish-please",
+    "prepublish": "npx publish-please guard"
   },
   "repository": {
     "type": "git",
@@ -61,7 +61,6 @@
     "lodash.merge": "^4.6.0",
     "lodash.once": "^4.1.1",
     "mocha": "^6.0.2",
-    "publish-please": "^5.4.3",
     "react": "*",
     "react-dom": "*",
     "react-test-renderer": "*",
