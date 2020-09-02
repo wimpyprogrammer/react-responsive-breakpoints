@@ -178,7 +178,7 @@ describe('withBreakpointsCustom throttles updates', () => {
 		const OuterComponent = withBreakpointsCustom({ onRecalculateBreakpoints }, InnerComponent);
 		shallow(<OuterComponent />);
 
-		[200, 205, 210, 215].forEach(width => resizeWindowToWidth(width));
+		[200, 205, 210, 215].forEach((width) => resizeWindowToWidth(width));
 
 		const assertions = () => {
 			// Some browsers may throttle successive resizes to a single event.  Otherwise
