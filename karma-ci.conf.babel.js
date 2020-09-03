@@ -19,23 +19,23 @@ const browsersToTest = {
 		platform: 'Windows 10',
 		version: 'latest',
 	},
-	sl_win10_ie11: {
-		base: 'SauceLabs',
-		browserName: 'internet explorer',
-		platform: 'Windows 10',
-		version: '11.103',
-	},
-	sl_win10_edge16: {
+	sl_win10_edge15: {
 		base: 'SauceLabs',
 		browserName: 'MicrosoftEdge',
 		platform: 'Windows 10',
-		version: '16.16299',
+		version: '15.15063',
 	},
-	sl_mac1013_: {
+	sl_win10_edge: {
+		base: 'SauceLabs',
+		browserName: 'MicrosoftEdge',
+		platform: 'Windows 10',
+		version: 'latest-1',
+	},
+	sl_mac1013_safari: {
 		base: 'SauceLabs',
 		browserName: 'safari',
 		platform: 'macOS 10.13',
-		version: '11.1',
+		version: 'latest-1',
 	},
 };
 

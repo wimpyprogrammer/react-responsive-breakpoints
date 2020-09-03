@@ -13,4 +13,4 @@ const localConfig = merge({
 	},
 }, commonConfig);
 
-export default config => config.set(localConfig);
+export default (config) => config.set(localConfig);
