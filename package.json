@@ -60,14 +60,14 @@
     "karma-webpack": "^4.0.2",
     "lodash.merge": "^4.6.0",
     "lodash.once": "^4.1.1",
-    "mocha": "^6.0.2",
+    "mocha": "^8.2.0",
     "react": "*",
     "react-dom": "*",
     "react-test-renderer": "*",
     "rimraf": "^2.6.2",
     "sinon": "^7.2.7",
     "sinon-chai": "^3.2.0",
-    "webpack": "^4.43.0"
+    "webpack": "^5.1.1"
   },
   "peerDependencies": {
     "react": "*"
